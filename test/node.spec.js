@@ -143,7 +143,7 @@ describe('Node', () => {
 
 			expect(child.parent).to.equal(grandson);
 			expect(grandson.parent).to.equal(root);
-		});
+		})
 
 		it('updates child.parent', () => {
 			const parentOfParent = new Node(100, 500);

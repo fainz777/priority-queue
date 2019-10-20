@@ -42,15 +42,21 @@ class Node {
 			return;
 		}
 
+		const child = this;
+		const parent = child.parent;
+
+		child.left = parent;
+		child.parent = parent.parent;
+
+		if (parent.parent) {
+			parent.parent.left = child;
+			// parent.parent - don't change
+		}
+
+		parent.parent = child;
+		parent.left = null;
 
 
-		//console.log('this: ', this)
-		this.parent.parent = this;
-		this.swapWithParent();
-		//return this.parent.parent.swapWithParent();
-		/*if (this.parent.parent.parent) {
-			this.parent.parent.swapWithParent();
-		}*/
 	}
 }
 
